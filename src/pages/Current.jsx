@@ -11,7 +11,7 @@ export default function Current() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiKey = "aab2a1b0c365457eaa564535250202";
+  const apiKey = "0e55861eadec48788c993455252302";
 
   const fetchWeather = async () => {
     setLoading(true);
