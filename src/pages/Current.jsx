@@ -16,29 +16,16 @@ import FavoriteLocations from "../components/FavoriteLocations";
 import WeatherMap from "../components/WeatherMap";
 
 export default function Current() {
-  const [location, setLocation] = useState("Egypt");
-  const [days, setDays] = useState(3);
-  const [date, setDate] = useState(() => {
-    const today = new Date();
-    return today.toISOString().split("T")[0];
-  });
-  const [mapWeatherCondition, setMapWeatherCondition] = useState(null);
+  const [weather, setWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
+  const [history, setHistory] = useState(null);
+  const [search, setSearch] = useState("2025-02-1");
+  const [town, setTown] = useState("Egypt");
+  const [days, setDays] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const { weather, forecast, history, loading, error, fetchWeatherData, clearError } = useWeather();
-  const { isDark } = useTheme();
-
-  const handleSearch = () => {
-    fetchWeatherData(location, days, date);
-  };
-
-  const handleRetry = () => {
-    clearError();
-    handleSearch();
-  };
-
-  const handleLocationSelect = (newLocation) => {
-    setLocation(newLocation);
-  };
+  const apiKey = "aab2a1b0c365457eaa564535250202";
 
   const handleMapLocationSelect = (cityName, weatherCondition) => {
     setLocation(cityName);
