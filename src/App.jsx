@@ -1,10 +1,11 @@
-import React from 'react'
-import Current from './pages/Current'
+import React from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
+import Current from './pages/Current';
 
 export default function App() {
   return (
-    <div className='bg-amber-700 h-screen'>
-      <Current/>
-    </div>
-  )
+    <ThemeProvider>
+      <Current />
+    </ThemeProvider>
+  );
 }
